@@ -2,7 +2,6 @@
 applications:
 - name: hello-world
   memory: 512M
-  instances: 1
   random-route: true
   domain: sunitparekh.cfapps.io
   path: target/hello-world-1.3.3.RELEASE.jar
