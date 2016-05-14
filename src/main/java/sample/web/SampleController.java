@@ -7,9 +7,13 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.logging.Logger;
+
 @Controller
 @EnableAutoConfiguration
 public class SampleController {
+
+    Logger logger = Logger.getLogger(SampleController.class.getName());
 
     @Autowired
     private Environment env;
@@ -17,7 +21,8 @@ public class SampleController {
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Hello World! " + env.getProperty("CF_INSTANCE_GUID");
+        logger.info("Serving request from " + env.getProperty("HOSTNAME"));
+        return "Hello World! " + env.getProperty("HOSTNAME");
     }
 
     public static void main(String[] args) throws Exception {

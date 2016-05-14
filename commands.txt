@@ -1,0 +1,12 @@
+mvn package
+docker build -t sunitparekh/spring-boot-hello .
+
+docker run -d -p 8080 --name boothello sunitparekh/spring-boot-hello
+
+
+docker build -t sunitparekh/spring-boot-nginx -f DockerfileNignx .
+
+docker run -d -p 80 --name bootnginx --link boothello:app1 sunitparekh/spring-boot-nginx
+
+
+ab -n 30 http://192.168.99.100:32788/

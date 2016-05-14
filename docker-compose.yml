@@ -1,0 +1,16 @@
+app1:
+    image: sunitparekh/spring-boot-hello
+    ports:
+        - "8080"
+app2:
+    image: sunitparekh/spring-boot-hello
+    ports:
+        - "8080"
+
+nginx1:
+    image: sunitparekh/spring-boot-nginx
+    ports:
+        - "80"
+    links:
+        - app1
+        - app2
