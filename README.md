@@ -11,7 +11,7 @@
 
 #### build java app docker image
 
-``` docker build -t sunitparekh/java8slim-hello . ```
+``` docker build -t sunitparekh/spring-boot-hello . ```
 
 #### run java app container
 
